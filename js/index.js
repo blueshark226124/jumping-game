@@ -92,8 +92,8 @@ $(function() {
         else return true;
     };
 
-    $(this).keypress(function(e) {
-        if (e.keyCode === 32) {
+    $(this).keydown(function(e) {
+        if (e.which === 32 || e.which === 38) {
             if (isHeroJumping()) return;
             console.log("JUMP");
 
