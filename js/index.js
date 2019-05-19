@@ -114,6 +114,24 @@ $(function() {
         }
     });
 
+    $(this).on("tap", function() {
+        if (isHeroJumping()) return;
+
+        if ($(".lose").hasClass("lost") === false) {
+            $(".hero")
+                .toggleClass("jump")
+                .bind(
+                    "webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend",
+                    function(e) {
+                        if ($(this).hasClass("jump")) {
+                            console.log("DROP");
+                            $(this).toggleClass("jump");
+                        }
+                    }
+                );
+        }
+    });
+
     setTimeout(function() {
         runGame = setInterval(function() {
             runEnemy();
