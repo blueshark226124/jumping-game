@@ -58,7 +58,7 @@ body {
             transform: translate(-50%, -50%);
     width: 1000px;
     height: 500px;
-    background: url("http://www.temp.hungrylion.co.za/back_old.png");
+    background: url("/image/background.png");
     background-repeat-y: repeat;
     -webkit-animation: bg 6s linear infinite;
             animation: bg 6s linear infinite;
@@ -139,7 +139,8 @@ body {
     border: 5px solid #4a9d59;
 }
 .lose p {
-    padding: 32px;
+    text-align: center;
+    margin: 25px 0 5px 0;
     font-weight: bolder;
 }
 
@@ -154,4 +155,9 @@ body {
 .stopAnimate, .stopAnimate::before {
     -webkit-animation-play-state: paused;
             animation-play-state: paused;
+}
+
+#username {
+    opacity: 0.8;
+    width: 100%;
 }
