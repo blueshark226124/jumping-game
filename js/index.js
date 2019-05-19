@@ -93,28 +93,7 @@ $(function() {
         else return true;
     };
 
-    $(this).keydown(function(e) {
-        if (e.which === 32 || e.which === 38) {
-            if (isHeroJumping()) return;
-            console.log("JUMP");
-
-            if ($(".lose").hasClass("lost") === false) {
-                $(".hero")
-                    .toggleClass("jump")
-                    .bind(
-                        "webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend",
-                        function(e) {
-                            if ($(this).hasClass("jump")) {
-                                console.log("DROP");
-                                $(this).toggleClass("jump");
-                            }
-                        }
-                    );
-            }
-        }
-    });
-
-    $(this).on("tap", function() {
+    var jumpHero = function() {
         if (isHeroJumping()) return;
 
         if ($(".lose").hasClass("lost") === false) {
@@ -122,14 +101,24 @@ $(function() {
                 .toggleClass("jump")
                 .bind(
                     "webkitTransitionEnd oTransitionend oTransitionEnd msTransitionEnd transitionend",
-                    function(e) {
+                    function() {
                         if ($(this).hasClass("jump")) {
-                            console.log("DROP");
                             $(this).toggleClass("jump");
                         }
                     }
                 );
         }
+    };
+
+    $(this).keydown(function(e) {
+        if (e.which === 32 || e.which === 38) {
+            jumpHero();
+        }
+    });
+
+    // when user taps the screen on mobile
+    $(this).on("tap", function() {
+        jumpHero();
     });
 
     setTimeout(function() {
