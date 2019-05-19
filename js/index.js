@@ -88,7 +88,8 @@ $(function() {
     //  check the hero is now on jumping or not , if on jumping, return true
     var isHeroJumping = function() {
         var hero_btm = $(".hero").css("bottom");
-        if (hero_btm == "68px") return false;
+        hero_btm = parseFloat(hero_btm.replace("px", ""));
+        if (hero_btm >= 68 && hero_btm <= 85) return false;
         else return true;
     };
 
