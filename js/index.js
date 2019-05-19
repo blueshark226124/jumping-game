@@ -21,8 +21,6 @@ $(function() {
                 });
             },
             progress: function() {
-                console.log(overlaps($(".hero"), $(".enemy")));
-
                 var laped = overlaps($(".hero"), $(".enemy"));
 
                 var heroLoc = document.getElementsByClassName("hero")[0]
@@ -31,13 +29,13 @@ $(function() {
                     .offsetTop;
                 var loc = enemyLoc - heroLoc;
 
-                console.log(
-                    "enemy: " + enemyLoc + " hero: " + heroLoc + " loc: " + loc
-                );
+                // console.log(
+                //   "enemy: " + enemyLoc + " hero: " + heroLoc + " loc: " + loc
+                // );
 
                 if (loc > 205 && laped === false) {
                     dones = true;
-                    console.log("WIN");
+                    //console.log("WIN");
                 } else if (laped === true && loc < 205) {
                     dones = false;
                     $(".enemy").stop();
@@ -47,7 +45,7 @@ $(function() {
                     $(".lose p").html("Your Score is " + score);
                     clearInterval(runGame);
                     $(".lose").addClass("lost");
-                    console.log("LOSE");
+                    //console.log("LOSE");
                 }
             },
 
@@ -87,11 +85,18 @@ $(function() {
         };
     })();
 
-    // Events
+    //  check the hero is now on jumping or not , if on jumping, return true
+    var isHeroJumping = function() {
+        var hero_btm = $(".hero").css("bottom");
+        if (hero_btm == "68px") return false;
+        else return true;
+    };
 
     $(this).keypress(function(e) {
-        console.log("JUMP");
         if (e.keyCode === 32) {
+            if (isHeroJumping()) return;
+            console.log("JUMP");
+
             if ($(".lose").hasClass("lost") === false) {
                 $(".hero")
                     .toggleClass("jump")
@@ -107,9 +112,10 @@ $(function() {
             }
         }
     });
+
     setTimeout(function() {
         runGame = setInterval(function() {
             runEnemy();
         }, 2000);
-    }, 2000);
+    }, 500);
 });
