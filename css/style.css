@@ -1,0 +1,157 @@
+body {
+    background-color: #000;
+}
+
+.hero {
+    width: 110px;
+    height: 154px;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 163px;
+    bottom: 68px;
+    transition: bottom .8s;
+}
+.hero::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 279px;
+    height: 340px;
+    background-image: url("http://www.temp.hungrylion.co.za/16maysprite.png");
+    background-position: -69px -40px;
+    -webkit-animation: run2 0.4s steps(5) infinite;
+            animation: run2 0.4s steps(5) infinite;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+    bottom: -68px;
+    left: -64px;
+}
+
+.jump {
+    bottom: 270px;
+    transition: bottom .2s;
+}
+
+@-webkit-keyframes run2 {
+    from {
+        background-position: 0px -40px;
+    }
+    to {
+        background-position: -1400px -40px;
+    }
+}
+
+@keyframes run2 {
+    from {
+        background-position: 0px -40px;
+    }
+    to {
+        background-position: -1400px -40px;
+    }
+}
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 500px;
+    background: url("http://www.temp.hungrylion.co.za/back_old.png");
+    background-repeat-y: repeat;
+    -webkit-animation: bg 6s linear infinite;
+            animation: bg 6s linear infinite;
+    overflow: hidden;
+    background-color: grey;
+}
+
+@-webkit-keyframes bg {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: -2000px;
+    }
+}
+
+@keyframes bg {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: -2000px;
+    }
+}
+.enemy {
+    width: 90px;
+    height: 80px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    bottom: 68px;
+    right: -100px;
+    border-radius: 8px;
+    background: url("http://www.iconarchive.com/download/i62756/spoon-graphics/monster/Blue-Monster.ico")  ;background-size: 100px;
+}
+
+.score, .lose {
+    font-size: 29px;
+    color: white;
+    font-family: monospace;
+    padding: 14px;
+    position: absolute;
+    right: 33px;
+}
+
+.lose {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 318px;
+    height: 155px;
+    border-radius: 10px;
+    border: 6px solid rgba(0, 117, 132, 0.52);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    background: #bfd255;
+    background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+}
+.lose::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url("http://www.temp.hungrylion.co.za/lion%20head.png");
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -129%);
+            transform: translate(-50%, -129%);
+    border: 5px solid #4a9d59;
+}
+.lose p {
+    padding: 32px;
+    font-weight: bolder;
+}
+
+.lost {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+}
+
+.stopAnimate, .stopAnimate::before {
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+}
