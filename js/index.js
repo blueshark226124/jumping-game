@@ -126,4 +126,55 @@ $(function() {
             runEnemy();
         }, 2000);
     }, 500);
+
+    // process the form
+
+    var theForm = document.getElementById("theForm");
+
+    new stepsForm(theForm, {
+        onSubmit: function(form) {
+            /*
+                form.submit()
+                or
+                AJAX request (maybe show loading indicator while we don't have an answer..)
+                */
+
+            var url = "php/ajax.php?action=create";
+            var username = $("#username").val();
+            var score = parseInt($(".score").html());
+            var data = {
+                username: username,
+                score: score
+            };
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                dataType: "json",
+                success: function(res) {
+                    console.log(res);
+                    if (res.status) {
+                        // let's just simulate something...
+                        // hide form
+                        classie.addClass(
+                            theForm.querySelector(".simform-inner"),
+                            "hide"
+                        );
+
+                        var messageEl = theForm.querySelector(".final-message");
+                        messageEl.innerHTML = res.msg;
+                        classie.addClass(messageEl, "show");
+                        $("section").css({ background: "none" });
+                    } else {
+                        console.log(res.msg);
+                        /* var messageEl = theForm.querySelector(".final-message");
+                        messageEl.innerHTML = res.msg;
+                        classie.addClass(messageEl, "show");
+                        $("section").css({ background: "none" }); */
+                    }
+                }
+            });
+        }
+    });
 });

@@ -27,7 +27,6 @@
                         <ol class="questions">
                             <li>
                                 <input id="username" name="username" type="text" placeholder="Enter username" />
-                                <input type="hidden" name="score" value="5" />
                             </li>
                         </ol><!-- /questions -->
                         <button class="submit" type="submit">Send</button>
@@ -53,28 +52,5 @@
     <script src="js/classie.js"></script>
 	<script src="js/stepsForm.js"></script>
     <script src="js/index.js"></script>
-    <script>
-        var theForm = document.getElementById( 'theForm' );
-
-        new stepsForm( theForm, {
-            onSubmit : function( form ) {
-                // hide form
-                classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-
-                /*
-                form.submit()
-                or
-                AJAX request (maybe show loading indicator while we don't have an answer..)
-                */
-                // console.log($(form).serialize());
-
-                // let's just simulate something...
-                var messageEl = theForm.querySelector( '.final-message' );
-                messageEl.innerHTML = 'Successfully recorded.';
-                classie.addClass( messageEl, 'show' );
-                $("section").css({"background": "none"});
-            }
-        } );
-    </script>
 </body>
 </html>
