@@ -19,6 +19,10 @@
         <div class="score">0</div>
         <div class="hero"></div>
         <div class="enemy"></div>
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
         <div class="lose">
             <p></p>
             <section>

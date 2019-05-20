@@ -12,6 +12,7 @@ body {
     bottom: 68px;
     transition: bottom .8s;
 }
+
 .hero::before {
     content: "";
     display: block;
@@ -158,6 +159,78 @@ body {
 }
 
 #username {
-    opacity: 0.8;
+    opacity: 1;
     width: 100%;
 }
+
+.item1 {
+    z-index: -10;
+    width: 150px;
+    height: 150px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    top: 50px;
+    right: -150px;
+    border-radius: 8px;
+    background: url("/image/item.png");
+    background-size: 150px;
+}
+
+.item2 {
+    z-index: -10;
+    width: 70px;
+    height: 70px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    top: 80px;
+    right: -150px;
+    border-radius: 8px;
+    background: url("/image/item.png");
+    background-size: 70px;
+}
+
+.item3 {
+    z-index: -10;
+    width: 100px;
+    height: 100px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    top: 70px;
+    right: -150px;
+    border-radius: 8px;
+    background: url("/image/item.png");
+    background-size: 100px;
+}
+
+.item4 {
+    z-index: -10;
+    width: 100px;
+    height: 100px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    top: 60px;
+    right: -150px;
+    border-radius: 8px;
+    background: url("/image/item.png");
+    background-size: 100px;
+}
+
+/* .container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url("/image/item.png");
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-animation: bg 6s linear infinite;
+    animation: bg 6s linear infinite;
+} */

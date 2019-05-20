@@ -3,7 +3,7 @@
  * Simple Endless Run
  */
 $(function() {
-    var runGame;
+    var runGame, itemInterval;
     var dones = false;
 
     var runEnemy = function() {
@@ -44,6 +44,7 @@ $(function() {
                     $(".container").addClass("stopAnimate");
                     $(".lose p").html("Your Score is " + score);
                     clearInterval(runGame);
+                    clearInterval(itemInterval);
                     $(".lose").addClass("lost");
                     //console.log("LOSE");
                 }
@@ -51,13 +52,61 @@ $(function() {
 
             complete: function() {
                 if (dones === true) {
-                    var score = parseInt($(".score").html());
-                    $(".score").html(score + 1);
+                    // var score = parseInt($(".score").html());
+                    // $(".score").html(score + 1);
                 }
             }
         };
 
         enemy.animate(properties, options);
+    };
+
+    var runItem = function() {
+        var items = $(".item");
+
+        $.each(items, function(key, item) {
+            // get the item, grabItem is true
+            var grabItem = false;
+            var properties = {
+                right: $(".container").width(),
+                display: "block"
+            };
+            var options = {
+                duration: 3000,
+                easing: "linear",
+                done: function() {
+                    var w = -150;
+                    $(item).css({
+                        right: w
+                    });
+                },
+                progress: function() {
+                    var laped = overlaps($(".hero"), $(item));
+                    var heroLoc = $(".hero").offset();
+                    var itemLoc = $(item).offset();
+
+                    var topDiff = heroLoc.top - itemLoc.top;
+                    var leftDiff = itemLoc.left - heroLoc.left;
+
+                    if (grabItem === false && laped === true) {
+                        grabItem = true;
+                        // hide the item
+                        $(item).hide();
+                        var score = parseInt($(".score").html());
+                        $(".score").html(score + 1);
+                    }
+                },
+                complete: function() {
+                    // initially display the item if it's hidden before
+                    if ($(item).is(":hidden")) {
+                        $(item).show();
+                    }
+                }
+            };
+            setTimeout(function() {
+                $(item).animate(properties, options);
+            }, key * 700);
+        });
     };
 
     var overlaps = (function() {
@@ -125,6 +174,9 @@ $(function() {
         runGame = setInterval(function() {
             runEnemy();
         }, 2000);
+        itemInterval = setInterval(function() {
+            runItem();
+        }, 3000);
     }, 500);
 
     // process the form
@@ -153,7 +205,6 @@ $(function() {
                 data: data,
                 dataType: "json",
                 success: function(res) {
-                    console.log(res);
                     if (res.status) {
                         // let's just simulate something...
                         // hide form
@@ -168,10 +219,6 @@ $(function() {
                         $("section").css({ background: "none" });
                     } else {
                         console.log(res.msg);
-                        /* var messageEl = theForm.querySelector(".final-message");
-                        messageEl.innerHTML = res.msg;
-                        classie.addClass(messageEl, "show");
-                        $("section").css({ background: "none" }); */
                     }
                 }
             });
