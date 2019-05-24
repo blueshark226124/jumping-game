@@ -157,6 +157,8 @@ $(function() {
         finishGame();
         // turn on the win audio
         setTimeout(function() {
+            var score = parseInt($(".score").html());
+            $(".lose p").html("Your Score is " + score);
             $("#win_audio").trigger("play");
             $(".lose").addClass("lost");
             $(".lose").addClass("win");
@@ -175,8 +177,6 @@ $(function() {
         $(".container").addClass("stopAnimate");
         clearInterval(runGame);
         clearInterval(itemInterval);
-        var score = parseInt($(".score").html());
-        $(".lose p").html("Your Score is " + score);
     };
 
     $(this).keydown(function(e) {
