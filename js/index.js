@@ -1,12 +1,12 @@
-/**
- *
- * Simple Endless Run
- */
 $(function() {
     var runGame, itemInterval;
     var dones = false;
     var gameTime = 0; // indicates how many time has passed
-    var maxTime = 5000; // max time 5,000 miliseconds
+    var maxTime = 20000; // max time 5,000 miliseconds
+    // enemyNumber = 0 -> blue monster
+    // enemyNumber = 1 -> blue monster
+    // enemyNumber = 2 -> monkey monster
+    var enemyNumber = 0;
 
     var runEnemy = function() {
         var enemy = $(".enemy");
@@ -31,10 +31,6 @@ $(function() {
                     .offsetTop;
                 var loc = enemyLoc - heroLoc;
 
-                // console.log(
-                //   "enemy: " + enemyLoc + " hero: " + heroLoc + " loc: " + loc
-                // );
-
                 if (loc > 205 && laped === false) {
                     dones = true;
                     //console.log("WIN");
@@ -47,8 +43,21 @@ $(function() {
 
             complete: function() {
                 if (dones === true) {
-                    // var score = parseInt($(".score").html());
-                    // $(".score").html(score + 1);
+                    enemyNumber++;
+                    if (enemyNumber > 2) {
+                        enemyNumber = 0;
+                        $(".enemy")
+                            .removeClass("monkey")
+                            .addClass("blue");
+                    } else if (enemyNumber == 1) {
+                        $(".enemy")
+                            .removeClass("monkey")
+                            .addClass("blue");
+                    } else {
+                        $(".enemy")
+                            .removeClass("blue")
+                            .addClass("monkey");
+                    }
                 }
             }
         };
@@ -169,6 +178,8 @@ $(function() {
     var loseGame = function() {
         $(".enemy").stop();
         finishGame();
+        var score = parseInt($(".score").html());
+        $(".lose p").html("Your Score is " + score);
         $(".lose").addClass("lost");
     };
 

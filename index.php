@@ -18,7 +18,7 @@
     <div class="container">
         <div class="score">0</div>
         <div class="hero"></div>
-        <div class="enemy"></div>
+        <div class="enemy blue"></div>
         <div class="item item1 coin"></div>
         <div class="item item2 ballon"></div>
         <div class="item item3 coin"></div>

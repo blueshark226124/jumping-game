@@ -84,7 +84,7 @@ body {
         background-position-x: -2000px;
     }
 }
-.enemy {
+.enemy.blue {
     width: 90px;
     height: 80px;
     background-color: #f5c32d;
@@ -93,7 +93,21 @@ body {
     bottom: 68px;
     right: -100px;
     border-radius: 8px;
-    background: url("http://www.iconarchive.com/download/i62756/spoon-graphics/monster/Blue-Monster.ico")  ;background-size: 100px;
+    background: url("http://www.iconarchive.com/download/i62756/spoon-graphics/monster/Blue-Monster.ico")  ;
+    background-size: 100px;
+}
+
+.enemy.monkey {
+    width: 90px;
+    height: 80px;
+    background-color: #f5c32d;
+    position: absolute;
+    display: block;
+    bottom: 68px;
+    right: -100px;
+    border-radius: 8px;
+    background: url("/image/monkey.png")  ;
+    background-size: 100px;
 }
 
 .score, .lose {
