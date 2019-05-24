@@ -5,6 +5,8 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
+    var gameTime = 0; // indicates how many time has passed
+    var maxTime = 5000; // max time 5,000 miliseconds
 
     var runEnemy = function() {
         var enemy = $(".enemy");
@@ -38,14 +40,7 @@ $(function() {
                     //console.log("WIN");
                 } else if (laped === true && loc < 205) {
                     dones = false;
-                    $(".enemy").stop();
-                    var score = parseInt($(".score").html());
-                    $(".hero").addClass("stopAnimate");
-                    $(".container").addClass("stopAnimate");
-                    $(".lose p").html("Your Score is " + score);
-                    clearInterval(runGame);
-                    clearInterval(itemInterval);
-                    $(".lose").addClass("lost");
+                    loseGame();
                     //console.log("LOSE");
                 }
             },
@@ -82,18 +77,15 @@ $(function() {
                 },
                 progress: function() {
                     var laped = overlaps($(".hero"), $(item));
-                    var heroLoc = $(".hero").offset();
-                    var itemLoc = $(item).offset();
-
-                    var topDiff = heroLoc.top - itemLoc.top;
-                    var leftDiff = itemLoc.left - heroLoc.left;
 
                     if (grabItem === false && laped === true) {
                         grabItem = true;
                         // hide the item
                         $(item).hide();
                         var score = parseInt($(".score").html());
-                        $(".score").html(score + 1);
+                        if ($(item).hasClass("coin"))
+                            $(".score").html(score + 5);
+                        else $(".score").html(score + 10);
                     }
                 },
                 complete: function() {
@@ -159,6 +151,34 @@ $(function() {
         }
     };
 
+    // when hero wins the game
+    var winGame = function() {
+        $(".enemy").hide();
+        finishGame();
+        // turn on the win audio
+        setTimeout(function() {
+            $("#win_audio").trigger("play");
+            $(".lose").addClass("lost");
+            $(".lose").addClass("win");
+        }, 1500);
+    };
+
+    // when hero loses the game
+    var loseGame = function() {
+        $(".enemy").stop();
+        finishGame();
+        $(".lose").addClass("lost");
+    };
+
+    var finishGame = function() {
+        $(".hero").addClass("stopAnimate");
+        $(".container").addClass("stopAnimate");
+        clearInterval(runGame);
+        clearInterval(itemInterval);
+        var score = parseInt($(".score").html());
+        $(".lose p").html("Your Score is " + score);
+    };
+
     $(this).keydown(function(e) {
         if (e.which === 32 || e.which === 38) {
             jumpHero();
@@ -172,7 +192,11 @@ $(function() {
 
     setTimeout(function() {
         runGame = setInterval(function() {
+            if (gameTime >= maxTime) {
+                winGame();
+            }
             runEnemy();
+            gameTime += 2000;
         }, 2000);
         itemInterval = setInterval(function() {
             runItem();

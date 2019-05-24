@@ -125,7 +125,7 @@ body {
     content: "";
     display: block;
     position: absolute;
-    background: url("http://www.temp.hungrylion.co.za/lion%20head.png");
+    background: url("/image/lion_head.png");
     border-radius: 100%;
     width: 100px;
     height: 100px;
@@ -153,6 +153,25 @@ body {
     transition: transform .3s, -webkit-transform .3s;
 }
 
+.win::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url("/image/goal.png");
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -129%);
+            transform: translate(-50%, -129%);
+    border: 5px solid #4a9d59;
+}
+
 .stopAnimate, .stopAnimate::before {
     -webkit-animation-play-state: paused;
             animation-play-state: paused;
@@ -173,50 +192,50 @@ body {
     top: 50px;
     right: -150px;
     border-radius: 8px;
-    background: url("/image/item.png");
+    background: url("/image/coin.png");
     background-size: 150px;
 }
 
 .item2 {
     z-index: -10;
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
     top: 80px;
     right: -150px;
     border-radius: 8px;
-    background: url("/image/item.png");
-    background-size: 70px;
+    background: url("/image/balloon.png");
+    background-size: 150px;
 }
 
 .item3 {
     z-index: -10;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
     top: 70px;
     right: -150px;
     border-radius: 8px;
-    background: url("/image/item.png");
-    background-size: 100px;
+    background: url("/image/coin.png");
+    background-size: 150px;
 }
 
 .item4 {
     z-index: -10;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
     top: 60px;
     right: -150px;
     border-radius: 8px;
-    background: url("/image/item.png");
-    background-size: 100px;
+    background: url("/image/balloon.png");
+    background-size: 150px;
 }
 
 /* .container::before {

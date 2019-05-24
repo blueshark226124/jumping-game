@@ -19,10 +19,10 @@
         <div class="score">0</div>
         <div class="hero"></div>
         <div class="enemy"></div>
-        <div class="item item1"></div>
-        <div class="item item2"></div>
-        <div class="item item3"></div>
-        <div class="item item4"></div>
+        <div class="item item1 coin"></div>
+        <div class="item item2 ballon"></div>
+        <div class="item item3 coin"></div>
+        <div class="item item4 ballon"></div>
         <div class="lose">
             <p></p>
             <section>
@@ -48,6 +48,9 @@
                 </form><!-- /simform -->	
             </section>
         </div>
+        <audio id="win_audio">
+            <source src="/audio/win.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
