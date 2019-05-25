@@ -48,6 +48,9 @@
                 </form><!-- /simform -->	
             </section>
         </div>
+        <div class="win" style="display: none;">
+            
+        </div>
         <audio id="win_audio">
             <source src="/audio/win.mp3" type="audio/mpeg">
         </audio>

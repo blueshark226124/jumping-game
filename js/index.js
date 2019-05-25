@@ -2,7 +2,7 @@ $(function() {
     var runGame, itemInterval;
     var dones = false;
     var gameTime = 0; // indicates how many time has passed
-    var maxTime = 20000; // max time 5,000 miliseconds
+    var maxTime = 3000; // max time 5,000 miliseconds
     // enemyNumber = 0 -> blue monster
     // enemyNumber = 1 -> blue monster
     // enemyNumber = 2 -> monkey monster
@@ -170,7 +170,7 @@ $(function() {
             $(".lose p").html("Your Score is " + score);
             $("#win_audio").trigger("play");
             $(".lose").addClass("lost");
-            $(".lose").addClass("win");
+            $(".win").show();
         }, 1500);
     };
 

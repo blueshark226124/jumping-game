@@ -167,23 +167,23 @@ body {
     transition: transform .3s, -webkit-transform .3s;
 }
 
-.win::before {
+.win:before {
     content: "";
     display: block;
     position: absolute;
     background: url("/image/goal.png");
     border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    background-size: 100px;
+    width: 500px;
+    height: 500px;
+    background-size: 500px;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 125%;
+    left: 71%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -129%);
             transform: translate(-50%, -129%);
-    border: 5px solid #4a9d59;
+    z-index: -10;
 }
 
 .stopAnimate, .stopAnimate::before {
