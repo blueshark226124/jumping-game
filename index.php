@@ -52,7 +52,7 @@
             
         </div>
         <audio id="win_audio">
-            <source src="/audio/win.mp3" type="audio/mpeg">
+            <source src="audio/win.mp3" type="audio/mpeg">
         </audio>
     </div>
 

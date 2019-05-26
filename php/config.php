@@ -2,10 +2,12 @@
 
 session_start();
 define ('DEV', true);
+// define ('DEV', false);
 
 if (DEV) {
     $config['site_url'] = 'http://blueshark.php.jumpinglion.com';
 } else {
+	$config['site_url'] = 'http://www.temp.hungrylion.co.za/game/';
 }
 
 // Database details...
@@ -16,6 +18,10 @@ if (DEV) {
 	$config['db_pass'] = '';
 	$config['db_name'] = 'jumpinglion';
 } else {
+	$config['db_host'] = 'mysql.temp.hungrylion.co.za';
+    $config['db_user'] = 'antonanton';
+	$config['db_pass'] = 'RtC7cH3uHvB5Udm';
+	$config['db_name'] = 'jumpinglion';
 }
 
 $db = get_db_conn();
