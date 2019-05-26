@@ -110,6 +110,20 @@ body {
     background-size: 100px;
 }
 
+.birthbucket {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url("/image/goal.png");
+    border-radius: 100%;
+    width: 400px;
+    height: 400px;
+    background-size: 400px;
+    bottom: 68px;
+    right: -400px;
+    z-index: -10;
+}
+
 .score, .lose {
     font-size: 29px;
     color: white;
@@ -165,25 +179,6 @@ body {
     transition: -webkit-transform .3s;
     transition: transform .3s;
     transition: transform .3s, -webkit-transform .3s;
-}
-
-.win:before {
-    content: "";
-    display: block;
-    position: absolute;
-    background: url("/image/goal.png");
-    border-radius: 100%;
-    width: 500px;
-    height: 500px;
-    background-size: 500px;
-    position: fixed;
-    top: 125%;
-    left: 71%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -129%);
-            transform: translate(-50%, -129%);
-    z-index: -10;
 }
 
 .stopAnimate, .stopAnimate::before {

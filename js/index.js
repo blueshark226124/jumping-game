@@ -1,8 +1,9 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
-    var gameTime = 0; // indicates how many time has passed
-    var maxTime = 3000; // max time 5,000 miliseconds
+    var maxTime = 20000; // max time miliseconds
+    var enemyCount = 0; // indicates how many time has passed
+    var enemyMaxCount = Math.round(maxTime / 2000); // enemy max count
     // enemyNumber = 0 -> blue monster
     // enemyNumber = 1 -> blue monster
     // enemyNumber = 2 -> monkey monster
@@ -63,6 +64,46 @@ $(function() {
         };
 
         enemy.animate(properties, options);
+    };
+
+    var runBirthdayBucket = function() {
+        var birthbucket = $(".birthbucket");
+        var grabItem = false;
+        var properties = {
+            right: $(".container").width(),
+            display: "block"
+        };
+        var options = {
+            duration: 3000,
+            done: function() {
+                var w = $(this).width() * -1;
+                $(this).css({
+                    right: w
+                });
+            },
+            progress: function() {
+                var laped = overlaps($(".hero"), $(".birthbucket"));
+
+                var heroLoc = document.getElementsByClassName("hero")[0]
+                    .offsetTop;
+                var birthbucketLoc = document.getElementsByClassName(
+                    "birthbucket"
+                )[0].offsetTop;
+                var loc = birthbucketLoc - heroLoc;
+
+                if (grabItem === false && laped === true) {
+                    grabItem = true;
+                    winGame();
+                }
+            },
+
+            complete: function() {
+                if (dones === true) {
+                }
+            }
+        };
+
+        birthbucket.animate(properties, options);
     };
 
     var runItem = function() {
@@ -162,7 +203,7 @@ $(function() {
 
     // when hero wins the game
     var winGame = function() {
-        $(".enemy").hide();
+        $(".birthbucket").stop();
         finishGame();
         // turn on the win audio
         setTimeout(function() {
@@ -171,7 +212,7 @@ $(function() {
             $("#win_audio").trigger("play");
             $(".lose").addClass("lost");
             $(".win").show();
-        }, 1500);
+        }, 2000);
     };
 
     // when hero loses the game
@@ -203,11 +244,12 @@ $(function() {
 
     setTimeout(function() {
         runGame = setInterval(function() {
-            if (gameTime >= maxTime) {
-                winGame();
+            if (enemyCount >= enemyMaxCount) {
+                runBirthdayBucket();
+            } else {
+                runEnemy();
             }
-            runEnemy();
-            gameTime += 2000;
+            enemyCount++;
         }, 2000);
         itemInterval = setInterval(function() {
             runItem();

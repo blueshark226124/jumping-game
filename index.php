@@ -48,7 +48,7 @@
                 </form><!-- /simform -->	
             </section>
         </div>
-        <div class="win" style="display: none;">
+        <div class="birthbucket">
             
         </div>
         <audio id="win_audio">
