@@ -32,6 +32,9 @@
                             <li>
                                 <input id="username" name="username" type="text" placeholder="Enter username" />
                             </li>
+                            <li>
+                                <input id="phone_number" name="phone_number" type="text" placeholder="Enter phone number" />
+                            </li>
                         </ol><!-- /questions -->
                         <button class="submit" type="submit">Send</button>
                         <div class="controls">

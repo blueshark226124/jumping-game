@@ -256,11 +256,14 @@ $(function() {
 
             var url = "php/ajax.php?action=create";
             var username = $("#username").val();
+            var phone_number = $("#phone_number").val();
             var score = parseInt($(".score").html());
             var data = {
                 username: username,
+                phone_number: phone_number,
                 score: score
             };
+            console.log(data);
 
             $.ajax({
                 type: "POST",
