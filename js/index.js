@@ -34,11 +34,9 @@ $(function() {
 
                 if (loc > 205 && laped === false) {
                     dones = true;
-                    //console.log("WIN");
                 } else if (laped === true && loc < 205) {
                     dones = false;
                     loseGame();
-                    //console.log("LOSE");
                 }
             },
 
@@ -84,21 +82,9 @@ $(function() {
             progress: function() {
                 var laped = overlaps($(".hero"), $(".birthbucket"));
 
-                var heroLoc = document.getElementsByClassName("hero")[0]
-                    .offsetTop;
-                var birthbucketLoc = document.getElementsByClassName(
-                    "birthbucket"
-                )[0].offsetTop;
-                var loc = birthbucketLoc - heroLoc;
-
                 if (grabItem === false && laped === true) {
                     grabItem = true;
                     winGame();
-                }
-            },
-
-            complete: function() {
-                if (dones === true) {
                 }
             }
         };
