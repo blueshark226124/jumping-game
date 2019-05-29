@@ -6,8 +6,9 @@
 <html lang="en" >
 
 <head>
-  <meta charset="UTF-8">
-  <title>Birthday Bucket Bash</title>
+    <meta charset="UTF-8">
+    <title>Birthday Bucket Bash</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -15,7 +16,44 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="screen">
+        <div class="zoneName">
+            Get ready!
+        </div>
+        <div class="zone">
+            level
+            <span class="number">1</span>
+        </div>
+
+        <div class="blueBox">    
+        </div>
+        <div class="yellowBox">
+            <div class="title">
+                rescue the birthday bucket
+            </div>
+        </div>
+        <div class="redBox">
+            <ul class="rectBox">
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+                <li class="rect"></li>
+            </ul>  
+        </div>
+        <button id="play_btn" class="btn btn-danger">Play</button>
+    </div>
+
+    <div class="container" style="display: none;">
         <div class="score">0</div>
         <div class="hero"></div>
         <div class="enemy blue"></div>
@@ -51,16 +89,21 @@
                 </form><!-- /simform -->	
             </section>
         </div>
-        <div class="birthbucket">
-            
-        </div>
+        <div class="birthbucket"></div>
         <audio id="win_audio">
             <source src="audio/win_audio.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="game_audio">
+            <source src="audio/game_audio.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="die_audio">
+            <source src="audio/die_audio.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/classie.js"></script>
 	<script src="js/stepsForm.js"></script>

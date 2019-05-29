@@ -9,6 +9,84 @@ $(function() {
     // enemyNumber = 2 -> monkey monster
     var enemyNumber = 0;
 
+    // when clicking the play button
+    $("#play_btn").click(function() {
+        $("body").css("background-color", "#000");
+        $(".screen").hide();
+        $(".container").show();
+        playGame();
+    });
+
+    var playGame = function() {
+        // start the game audio
+        $("#game_audio").trigger("play");
+
+        setTimeout(function() {
+            runGame = setInterval(function() {
+                if (enemyCount >= enemyMaxCount) {
+                    runBirthdayBucket();
+                } else {
+                    runEnemy();
+                }
+                enemyCount++;
+            }, 2000);
+            itemInterval = setInterval(function() {
+                runItem();
+            }, 3000);
+        }, 500);
+
+        // process the form
+
+        var theForm = document.getElementById("theForm");
+
+        new stepsForm(theForm, {
+            onSubmit: function(form) {
+                /*
+                    form.submit()
+                    or
+                    AJAX request (maybe show loading indicator while we don't have an answer..)
+                    */
+
+                var url = "php/ajax.php?action=create";
+                var username = $("#username").val();
+                var phone_number = $("#phone_number").val();
+                var score = parseInt($(".score").html());
+                var data = {
+                    username: username,
+                    phone_number: phone_number,
+                    score: score
+                };
+                console.log(data);
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function(res) {
+                        if (res.status) {
+                            // let's just simulate something...
+                            // hide form
+                            classie.addClass(
+                                theForm.querySelector(".simform-inner"),
+                                "hide"
+                            );
+
+                            var messageEl = theForm.querySelector(
+                                ".final-message"
+                            );
+                            messageEl.innerHTML = res.msg;
+                            classie.addClass(messageEl, "show");
+                            $("section").css({ background: "none" });
+                        } else {
+                            console.log(res.msg);
+                        }
+                    }
+                });
+            }
+        });
+    };
+
     var runEnemy = function() {
         var enemy = $(".enemy");
         var properties = {
@@ -205,6 +283,7 @@ $(function() {
     var loseGame = function() {
         $(".enemy").stop();
         finishGame();
+        $("#die_audio").trigger("play");
         var score = parseInt($(".score").html());
         $(".lose p").html("Your Score is " + score);
         $(".lose").addClass("lost");
@@ -215,6 +294,7 @@ $(function() {
         $(".container").addClass("stopAnimate");
         clearInterval(runGame);
         clearInterval(itemInterval);
+        $("#game_audio").trigger("pause");
     };
 
     $(this).keydown(function(e) {
@@ -226,68 +306,5 @@ $(function() {
     // when user taps the screen on mobile
     $(this).on("tap", function() {
         jumpHero();
-    });
-
-    setTimeout(function() {
-        runGame = setInterval(function() {
-            if (enemyCount >= enemyMaxCount) {
-                runBirthdayBucket();
-            } else {
-                runEnemy();
-            }
-            enemyCount++;
-        }, 2000);
-        itemInterval = setInterval(function() {
-            runItem();
-        }, 3000);
-    }, 500);
-
-    // process the form
-
-    var theForm = document.getElementById("theForm");
-
-    new stepsForm(theForm, {
-        onSubmit: function(form) {
-            /*
-                form.submit()
-                or
-                AJAX request (maybe show loading indicator while we don't have an answer..)
-                */
-
-            var url = "php/ajax.php?action=create";
-            var username = $("#username").val();
-            var phone_number = $("#phone_number").val();
-            var score = parseInt($(".score").html());
-            var data = {
-                username: username,
-                phone_number: phone_number,
-                score: score
-            };
-            console.log(data);
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: data,
-                dataType: "json",
-                success: function(res) {
-                    if (res.status) {
-                        // let's just simulate something...
-                        // hide form
-                        classie.addClass(
-                            theForm.querySelector(".simform-inner"),
-                            "hide"
-                        );
-
-                        var messageEl = theForm.querySelector(".final-message");
-                        messageEl.innerHTML = res.msg;
-                        classie.addClass(messageEl, "show");
-                        $("section").css({ background: "none" });
-                    } else {
-                        console.log(res.msg);
-                    }
-                }
-            });
-        }
     });
 });
