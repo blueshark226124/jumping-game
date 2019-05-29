@@ -15,6 +15,7 @@ $(function() {
         $(".screen").hide();
         $(".container").show();
         playGame();
+        initFunc();
     });
 
     var playGame = function() {
@@ -297,14 +298,16 @@ $(function() {
         $("#game_audio").trigger("pause");
     };
 
+    var initFunc = function() {
+        // when user taps the screen on mobile
+        $("body").on("tap", function() {
+            jumpHero();
+        });
+    };
+
     $(this).keydown(function(e) {
         if (e.which === 32 || e.which === 38) {
             jumpHero();
         }
-    });
-
-    // when user taps the screen on mobile
-    $(this).on("tap", function() {
-        jumpHero();
     });
 });
