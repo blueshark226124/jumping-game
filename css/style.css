@@ -19,7 +19,7 @@ body {
     position: absolute;
     width: 279px;
     height: 340px;
-    background-image: url("http://www.temp.hungrylion.co.za/16maysprite.png");
+    background-image: url("../image/17maysprite.png");
     background-position: -69px -40px;
     -webkit-animation: run2 0.4s steps(5) infinite;
             animation: run2 0.4s steps(5) infinite;
@@ -30,8 +30,8 @@ body {
 }
 
 .jump {
-    bottom: 270px;
-    transition: bottom .2s;
+    bottom: 274px;
+    transition: bottom .32s;
 }
 
 @-webkit-keyframes run2 {
@@ -85,29 +85,29 @@ body {
     }
 }
 .enemy.blue {
-    width: 90px;
-    height: 80px;
+    width: 115px;
+    height: 135px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
-    bottom: 68px;
+    bottom: 83px;
     right: -100px;
-    border-radius: 8px;
-    background: url("http://www.iconarchive.com/download/i62756/spoon-graphics/monster/Blue-Monster.ico")  ;
-    background-size: 100px;
+    border-radius: 7px;
+    background: url("../image/monkey.png")  ;
+    background-size: 130px;
 }
 
 .enemy.monkey {
-    width: 90px;
-    height: 80px;
+    width: 115px;
+    height: 135px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
-    bottom: 68px;
+    bottom: 83px;
     right: -100px;
-    border-radius: 8px;
-    background: url("../image/monkey.png")  ;
-    background-size: 100px;
+    border-radius: 7px;
+    background: url("../image/enemy2.png")  ;
+    background-size: 130px;
 }
 
 .birthbucket {
@@ -155,9 +155,9 @@ body {
     position: absolute;
     background: url("../image/lion_head.png");
     border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    background-size: 100px;
+    width: 138px;
+    height: 169px;
+    background-size: 142px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -165,7 +165,7 @@ body {
             transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -129%);
             transform: translate(-50%, -129%);
-    border: 5px solid #4a9d59;
+    
 }
 .lose p {
     text-align: center;

@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Hungry Lion Catch 22</title>
+  <title>Birthday Bucket Bash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -30,10 +30,10 @@
                     <div class="simform-inner">
                         <ol class="questions">
                             <li>
-                                <input id="username" name="username" type="text" placeholder="Enter username" />
+                                <input id="username" name="username" type="text" placeholder="Enter your name & surname" />
                             </li>
                             <li>
-                                <input id="phone_number" name="phone_number" type="text" placeholder="Enter phone number" />
+                                <input id="phone_number" name="phone_number" type="text" placeholder="Enter cell nr to CLAIM YOUR PRIZE" />
                             </li>
                         </ol><!-- /questions -->
                         <button class="submit" type="submit">Send</button>
@@ -55,7 +55,7 @@
             
         </div>
         <audio id="win_audio">
-            <source src="audio/win.mp3" type="audio/mpeg">
+            <source src="audio/win_audio.mp3" type="audio/mpeg">
         </audio>
     </div>
 
