@@ -1,13 +1,15 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
-    var maxTime = 20000; // max time miliseconds
+    var maxTime = 5000; // max time miliseconds
     var enemyCount = 0; // indicates how many time has passed
     var enemyMaxCount = Math.round(maxTime / 2000); // enemy max count
     // enemyNumber = 0 -> blue monster
     // enemyNumber = 1 -> blue monster
     // enemyNumber = 2 -> monkey monster
     var enemyNumber = 0;
+
+    var gameAudio = new Audio("audio/game_audio.mp3");
 
     // when clicking the play button
     $("#play_btn").click(function() {
@@ -17,10 +19,19 @@ $(function() {
         playGame();
         initFunc();
     });
+    /* var play_btn = document.getElementById("play_btn");
+    play_btn.addEventListener("click", first); */
+    /* var first = function() {
+        $("body").css("background-color", "#000");
+        $(".screen").hide();
+        $(".container").show();
+        playGame();
+        initFunc();
+    }; */
 
     var playGame = function() {
         // start the game audio
-        $("#game_audio").trigger("play");
+        gameAudio.play();
 
         setTimeout(function() {
             runGame = setInterval(function() {
@@ -295,7 +306,7 @@ $(function() {
         $(".container").addClass("stopAnimate");
         clearInterval(runGame);
         clearInterval(itemInterval);
-        $("#game_audio").trigger("pause");
+        gameAudio.pause();
     };
 
     var initFunc = function() {

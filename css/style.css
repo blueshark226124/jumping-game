@@ -18,7 +18,8 @@ html, body {
     bottom: 0;
     right: 0;
     overflow: hidden;
-    background: #565656;
+    background: url("../image/game_name1.png")  ;
+    background-color:  #e0e000;
 }
   
 .zoneStyle, .zoneName, .zone {
@@ -186,7 +187,13 @@ html, body {
 #play_btn {
     position: absolute;
     bottom: 30px;
+    font-weight: bold;
     right: 50px;
+    color: red;
+    width: 67px;
+    height: 34px;
+    background-color: #e0e000;
+    font-size: 28px;
 }
 
 /* game screen */

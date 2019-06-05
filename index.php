@@ -21,7 +21,7 @@
             Get ready!
         </div>
         <div class="zone">
-            level
+            player
             <span class="number">1</span>
         </div>
 
@@ -29,7 +29,7 @@
         </div>
         <div class="yellowBox">
             <div class="title">
-                rescue the birthday bucket
+                JUMP to stay alive!
             </div>
         </div>
         <div class="redBox">
@@ -92,9 +92,6 @@
         <div class="birthbucket"></div>
         <audio id="win_audio">
             <source src="audio/win_audio.mp3" type="audio/mpeg">
-        </audio>
-        <audio id="game_audio">
-            <source src="audio/game_audio.mp3" type="audio/mpeg">
         </audio>
         <audio id="die_audio">
             <source src="audio/die_audio.mp3" type="audio/mpeg">
