@@ -326,6 +326,38 @@ body {
     z-index: -10;
 }
 
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+ }
+
+#new_game {
+    content: "";
+    display: block;
+    position: absolute;
+    background: url("../image/new_game.png");
+    width: 1000px;
+    height: 225px;
+    top: 0px;
+    background-size: 1000px 225px;
+    right: 0px;
+    z-index: -10;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
 .score, .lose {
     font-size: 29px;
     color: white;

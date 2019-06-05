@@ -1,7 +1,7 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
-    var maxTime = 5000; // max time miliseconds
+    var maxTime = 20000; // max time miliseconds
     var enemyCount = 0; // indicates how many time has passed
     var enemyMaxCount = Math.round(maxTime / 2000); // enemy max count
     // enemyNumber = 0 -> blue monster
@@ -19,19 +19,12 @@ $(function() {
         playGame();
         initFunc();
     });
-    /* var play_btn = document.getElementById("play_btn");
-    play_btn.addEventListener("click", first); */
-    /* var first = function() {
-        $("body").css("background-color", "#000");
-        $(".screen").hide();
-        $(".container").show();
-        playGame();
-        initFunc();
-    }; */
 
     var playGame = function() {
         // start the game audio
         gameAudio.play();
+
+        $("#new_game").addClass("fadeOut");
 
         setTimeout(function() {
             runGame = setInterval(function() {
@@ -68,7 +61,6 @@ $(function() {
                     phone_number: phone_number,
                     score: score
                 };
-                console.log(data);
 
                 $.ajax({
                     type: "POST",

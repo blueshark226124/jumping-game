@@ -89,6 +89,7 @@
                 </form><!-- /simform -->	
             </section>
         </div>
+        <div id="new_game"></div>
         <div class="birthbucket"></div>
         <audio id="win_audio">
             <source src="audio/win_audio.mp3" type="audio/mpeg">
