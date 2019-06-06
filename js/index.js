@@ -27,8 +27,7 @@ $(function() {
 
     // when clicking the exit area
     $(".exit").click(function() {
-        alert("redirect to another url");
-        // window.location.assign("");
+        window.location.assign("https://www.roaringsiya.hungrylion.co.za");
     });
 
     var playGame = function() {
