@@ -20,6 +20,17 @@ $(function() {
         initFunc();
     });
 
+    // when clicking the retry area
+    $(".retry").click(function() {
+        window.location.reload();
+    });
+
+    // when clicking the exit area
+    $(".exit").click(function() {
+        alert("redirect to another url");
+        // window.location.assign("");
+    });
+
     var playGame = function() {
         // start the game audio
         gameAudio.play();
@@ -279,6 +290,8 @@ $(function() {
             $(".lose p").html("Your Score is " + score);
             $("#win_audio").trigger("play");
             $(".lose").addClass("lost");
+            $(".retry").addClass("lost");
+            $(".exit").addClass("lost");
             $(".win").show();
         }, 2000);
     };
@@ -291,6 +304,8 @@ $(function() {
         var score = parseInt($(".score").html());
         $(".lose p").html("Your Score is " + score);
         $(".lose").addClass("lost");
+        $(".retry").addClass("lost");
+        $(".exit").addClass("lost");
     };
 
     var finishGame = function() {

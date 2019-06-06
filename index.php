@@ -89,6 +89,12 @@
                 </form><!-- /simform -->	
             </section>
         </div>
+        <div class="retry">
+            <p>Retry</p>
+        </div>
+        <div class="exit">
+            <p>Exit</p>
+        </div>
         <div id="new_game"></div>
         <div class="birthbucket"></div>
         <audio id="win_audio">
