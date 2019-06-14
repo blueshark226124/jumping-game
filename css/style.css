@@ -29,7 +29,7 @@ html, body {
     margin-right: 5%;
     z-index: 5;
     text-align: right;
-    color: #e0e0e0;
+    color: #e0e000;
     font-family: 'Limelight', serif;
     text-shadow: #000 5px 5px 0;
 }
@@ -58,7 +58,7 @@ html, body {
 .blueBox {
     width: 100%;
     height: 100%;
-    background: #2040c0;
+    background: #e00000;
     position: absolute;
     top: -100%;
     animation: blueBox 4s 1 linear;
@@ -76,7 +76,9 @@ html, body {
 .yellowBox .title {
     font-family: 'Actor', sans-serif;
     letter-spacing: 2px;
+    color: #e00000;
     font-weight: bold;
+    font-size: 20px;
     position: absolute;
     top: 0;
     right: 0;
@@ -185,13 +187,14 @@ html, body {
 }
 
 #play_btn {
+    border-radius: 100px;
     position: absolute;
     bottom: 30px;
     font-weight: bold;
     right: 50px;
     color: red;
     width: 67px;
-    height: 34px;
+    height: 38px;
     background-color: #e0e000;
     font-size: 28px;
 }
@@ -294,22 +297,22 @@ body {
     display: block;
     bottom: 83px;
     right: -100px;
-    border-radius: 7px;
-    background: url("../image/monkey.png")  ;
+    border-radius: 1px;
+    background: url("../image/enemy2.png")  ;
     background-size: 130px;
 }
 
 .enemy.monkey {
-    width: 115px;
+    width: 110px;
     height: 135px;
     background-color: #f5c32d;
     position: absolute;
     display: block;
     bottom: 83px;
-    right: -100px;
-    border-radius: 7px;
-    background: url("../image/enemy2.png")  ;
-    background-size: 130px;
+    right: -90px;
+    border-radius: 1px;
+    background: url("../image/monkey.png")  ;
+    background-size: 125px;
 }
 
 .birthbucket {
@@ -346,14 +349,14 @@ body {
     display: block;
     position: absolute;
     background: url("../image/new_game.png");
-    width: 1000px;
+    width: 700px;
     height: 225px;
     top: 0px;
-    background-size: 1000px 225px;
-    right: 0px;
+    background-size: 700px 225px;
+    left: 3px;
     z-index: -10;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
+    -webkit-animation-duration: 3.95s;
+    animation-duration: 3.95s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
@@ -373,7 +376,7 @@ body {
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 100px;
+    width: 120px;
     height: 50px;
     border-radius: 10px;
     border: 3px solid rgba(0, 117, 132, 0.52);
@@ -390,7 +393,7 @@ body {
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 100px;
+    width: 120px;
     height: 50px;
     border-radius: 10px;
     border: 3px solid rgba(0, 117, 132, 0.52);
@@ -401,7 +404,41 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
 }
 
-.retry p, .exit p {
+.scoreboard {
+    position: fixed;
+    top: 74%;
+    left: 79%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 135px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 117, 132, 0.52);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    background: #bfd255;
+    background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+}
+
+.terms {
+    position: fixed;
+    top: 90%;
+    left: 79%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 117, 132, 0.52);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    background: #bfd255;
+    background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+}
+
+.retry p, .exit p, .scoreboard p, .terms p {
     font-size: 29px;
     color: white;
     font-family: monospace;

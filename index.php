@@ -68,10 +68,10 @@
                     <div class="simform-inner">
                         <ol class="questions">
                             <li>
-                                <input id="username" name="username" type="text" placeholder="Enter your name & surname" />
+                                <input id="username" name="username" type="text" placeholder="Enter name & surname" />
                             </li>
                             <li>
-                                <input id="phone_number" name="phone_number" type="text" placeholder="Enter cell nr to CLAIM YOUR PRIZE" />
+                                <input id="phone_number" name="phone_number" type="text" placeholder="Enter cell nr to CLAIM A PRIZE" />
                             </li>
                         </ol><!-- /questions -->
                         <button class="submit" type="submit">Send</button>
@@ -94,6 +94,12 @@
         </div>
         <div class="exit">
             <p>Exit</p>
+        </div>
+        <div class="scoreboard">
+            <p>Leaders</p>
+        </div>
+        <div class="terms">
+            <p>T&C's</p>
         </div>
         <div id="new_game"></div>
         <div class="birthbucket"></div>

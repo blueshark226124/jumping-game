@@ -27,7 +27,17 @@ $(function() {
 
     // when clicking the exit area
     $(".exit").click(function() {
-        window.location.assign("https://www.roaringsiya.hungrylion.co.za");
+        window.location.assign("http://www.roaringsiya.hungrylion.co.za");
+    });
+    
+    // when clicking the leaderboard area
+    $(".scoreboard").click(function() {
+        window.location.assign("http://www.scoreboard.hungrylion.co.za");
+    });
+    
+    // when clicking the terms area
+    $(".terms").click(function() {
+        window.location.assign("http://www.hungrylion.co.za/legal");
     });
 
     var playGame = function() {
@@ -291,6 +301,8 @@ $(function() {
             $(".lose").addClass("lost");
             $(".retry").addClass("lost");
             $(".exit").addClass("lost");
+            $(".scoreboard").addClass("lost");
+            $(".terms").addClass("lost");
             $(".win").show();
         }, 2000);
     };
@@ -305,6 +317,8 @@ $(function() {
         $(".lose").addClass("lost");
         $(".retry").addClass("lost");
         $(".exit").addClass("lost");
+        $(".scoreboard").addClass("lost");
+        $(".terms").addClass("lost");
     };
 
     var finishGame = function() {

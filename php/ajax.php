@@ -12,7 +12,7 @@ if ($action == "create") {
 	$result = $db->query($sql);
 	$response = array(
 		'status' => true,
-		'msg' => 'Successfully recorded!'
+		'msg' => "Thank you for playing Birthday Bucket Bash! See T's & C's"
 	);
 
 	echo json_encode($response);
