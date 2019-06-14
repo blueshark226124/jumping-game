@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 include_once('config.php');
 $action = (empty($_REQUEST['action'])) ? "" : $_REQUEST['action'];

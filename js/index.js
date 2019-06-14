@@ -82,7 +82,6 @@ $(function() {
                     score: score,
                     date: getTodayDate()
                 };
-                console.log(data);
 
                 $.ajax({
                     type: "POST",
