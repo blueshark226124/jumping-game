@@ -1,12 +1,12 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
-    var maxTime = 20000; // max time miliseconds
+    var maxTime = 5000; // max time miliseconds
     var enemyCount = 0; // indicates how many time has passed
     var enemyMaxCount = Math.round(maxTime / 2000); // enemy max count
-    // enemyNumber = 0 -> blue monster
-    // enemyNumber = 1 -> blue monster
-    // enemyNumber = 2 -> monkey monster
+    // enemyNumber = 0 -> monster 1
+    // enemyNumber = 1 -> monster 2
+    // enemyNumber = 2 -> monster 3
     var enemyNumber = 0;
 
     var gameAudio = new Audio("audio/game_audio.mp3");
@@ -29,12 +29,12 @@ $(function() {
     $(".exit").click(function() {
         window.location.assign("http://www.roaringsiya.hungrylion.co.za");
     });
-    
+
     // when clicking the leaderboard area
     $(".scoreboard").click(function() {
         window.location.assign("http://www.scoreboard.hungrylion.co.za");
     });
-    
+
     // when clicking the terms area
     $(".terms").click(function() {
         window.location.assign("http://www.hungrylion.co.za/legal");
@@ -79,8 +79,10 @@ $(function() {
                 var data = {
                     username: username,
                     phone_number: phone_number,
-                    score: score
+                    score: score,
+                    date: getTodayDate()
                 };
+                console.log(data);
 
                 $.ajax({
                     type: "POST",
@@ -334,6 +336,17 @@ $(function() {
         $("body").on("tap", function() {
             jumpHero();
         });
+    };
+
+    var getTodayDate = function() {
+        // get the today date
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + "-" + mm + "-" + dd;
+        return today;
     };
 
     $(this).keydown(function(e) {
