@@ -1,7 +1,7 @@
 $(function() {
     var runGame, itemInterval;
     var dones = false;
-    var maxTime = 5000; // max time miliseconds
+    var maxTime = 20000; // max time miliseconds
     var enemyCount = 0; // indicates how many time has passed
     var enemyMaxCount = Math.round(maxTime / 2000); // enemy max count
     // enemyNumber = 0 -> monster 1
