@@ -16,9 +16,9 @@ if ($action == "create") {
 
 	if ($rowcount > 0) {
 		// already exists
-		$msg = "We see you already won today";
+		$msg = "Thank you for playing! We see you already won today.";
 	} else {
-		$msg = "Contratulations! You won!";
+		$msg = "Congratulations! You won! We will sms your prize shortly";
 	}
 
 	$sql = "INSERT INTO result (username, phone_number, score, `date`) VALUES ('".$username."', '".$phone_number."', '".$score."', '".$date."')";

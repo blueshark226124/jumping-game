@@ -58,7 +58,7 @@ html, body {
 .blueBox {
     width: 100%;
     height: 100%;
-    background: #e00000;
+    background: #d10a10;
     position: absolute;
     top: -100%;
     animation: blueBox 4s 1 linear;
@@ -67,7 +67,7 @@ html, body {
 .yellowBox {
     width: 100%;
     height: 30%;
-    background: #e0e000;
+    background: #ffdd00;
     position: absolute;
     bottom: 0;
     right: -100%;
@@ -76,7 +76,7 @@ html, body {
 .yellowBox .title {
     font-family: 'Actor', sans-serif;
     letter-spacing: 2px;
-    color: #e00000;
+    color: #d10a10;
     font-weight: bold;
     font-size: 20px;
     position: absolute;
@@ -89,7 +89,7 @@ html, body {
   .redBox {
     width: 45%;
     height: 100%;
-    background: #e00000;
+    background: #d10a10;
     position: absolute;
     left: -100%;
     animation: redBox 4s 1 linear;
@@ -104,7 +104,7 @@ html, body {
     position: absolute;
 }
 .rectBox .rect {
-    background: #e00000;
+    background: #d10a10;
     list-style: none;
     height: 7.15%;
     width: 100%;
@@ -195,7 +195,7 @@ html, body {
     color: red;
     width: 67px;
     height: 38px;
-    background-color: #e0e000;
+    background-color: #ffdd00;
     font-size: 28px;
 }
 
