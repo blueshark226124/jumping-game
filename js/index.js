@@ -8,13 +8,13 @@ $(function() {
         } else {
             //run portrait script
             // console.log("portrait");
-            alert("Please rotate the screen to the landscape");
+            alert("Please rotate the screen to landscape");
         }
     }); */
 
     var screenWidth = screen.width;
     var mobile;
-    if (screenWidth < 600) mobile = true;
+    if (screenWidth < 900) mobile = true;
     else mobile = false;
 
     var runGame, itemInterval;
@@ -42,7 +42,7 @@ $(function() {
             initFunc();
         } else {
             //run portrait script
-            alert("Please rotate the screen to the landscape");
+            alert("Please rotate the screen to landscape");
             return;
         }
     });
@@ -75,7 +75,7 @@ $(function() {
 
         setTimeout(function() {
             var timerGame;
-            if (mobile) timerGame = 2000;
+            if (mobile) timerGame = 2500;
             else timerGame = 2000;
 
             runGame = setInterval(function() {
@@ -151,7 +151,7 @@ $(function() {
         };
 
         var duration;
-        if (mobile) duration = 1800;
+        if (mobile) duration = 2000;
         else duration = 1800;
 
         var options = {
