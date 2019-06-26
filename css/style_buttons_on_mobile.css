@@ -202,6 +202,7 @@ html, body {
 }
 
 /* game screen */
+
 .hero {
     width: 110px;
     height: 154px;
@@ -369,11 +370,11 @@ html, body {
 
 .retry {
     position: fixed;
-    top: 30%;
+    top: 42%;
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 135px;
+    width: 120px;
     height: 50px;
     border-radius: 10px;
     border: 3px solid rgba(0, 117, 132, 0.52);
@@ -386,11 +387,11 @@ html, body {
 
 .exit {
     position: fixed;
-    top: 46%;
+    top: 58%;
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 135px;
+    width: 120px;
     height: 50px;
     border-radius: 10px;
     border: 3px solid rgba(0, 117, 132, 0.52);
@@ -403,7 +404,7 @@ html, body {
 
 .scoreboard {
     position: fixed;
-    top: 62%;
+    top: 74%;
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -420,11 +421,11 @@ html, body {
 
 .terms {
     position: fixed;
-    top: 78%;
+    top: 90%;
     left: 79%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 135px;
+    width: 120px;
     height: 50px;
     border-radius: 10px;
     border: 3px solid rgba(0, 117, 132, 0.52);
@@ -563,7 +564,7 @@ html, body {
 
 @media (max-width: 600px) {
     .screen {
-        background: url("../image/Birthday Bash Game_250Wx500H.png") no-repeat   center center fixed;
+        background: url("../image/game_name1.png") no-repeat   center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -651,27 +652,87 @@ html, body {
         animation-fill-mode: both;
     }
 
-    /* .jump {
+    .jump {
         bottom: 274px;
         transition: bottom .42s;
-    } */
+    }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-    #new_game {
-        content: "";
-        display: block;
-        position: absolute;
-        background: url(http://www.temp.hungrylion.co.za/game/css/../image/new_game.png);
-        width: 600px;
-        height: 150px;
-        top: 60px;
-        background-size: 600px 150px;
-        left: 110px;
-        z-index: -10;
-        -webkit-animation-duration: 3.95s;
-        animation-duration: 3.95s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
+
+    .retry.lost, .exit.lost, .scoreboard.lost, .terms.lost {
+        -webkit-transform: translate(-50%, -50%) scale(1);
+                transform: translate(-50%, -50%) scale(1);
+        transition: -webkit-transform .3s;
+        transition: transform .3s;
+        transition: transform .3s, -webkit-transform .3s;
+    }
+
+    .retry {
+        position: fixed;
+        top: 30%;
+        left: 79%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 135px;
+        height: 50px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 117, 132, 0.52);
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        background: #bfd255;
+        background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    }
+
+    .exit {
+        position: fixed;
+        top: 45%;
+        left: 79%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 135px;
+        height: 50px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 117, 132, 0.52);
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        background: #bfd255;
+        background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    }
+
+    .scoreboard {
+        position: fixed;
+        top: 60%;
+        left: 79%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 135px;
+        height: 50px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 117, 132, 0.52);
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        background: #bfd255;
+        background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    }
+
+    .terms {
+        position: fixed;
+        top: 75%;
+        left: 79%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 135px;
+        height: 50px;
+        border-radius: 10px;
+        border: 3px solid rgba(0, 117, 132, 0.52);
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        background: #bfd255;
+        background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 28%, #72aa00 54%, #9ecb2d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
     }
 }

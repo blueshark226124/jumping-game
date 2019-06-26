@@ -1,4 +1,22 @@
 $(function() {
+    /* $(window).on("resize", function() {
+        var height = $(window).height();
+        var width = $(window).width();
+        if (width > height) {
+            //run landscape script
+            // console.log("landscape");
+        } else {
+            //run portrait script
+            // console.log("portrait");
+            alert("Please rotate the screen to the landscape");
+        }
+    }); */
+
+    var screenWidth = screen.width;
+    var mobile;
+    if (screenWidth < 600) mobile = true;
+    else mobile = false;
+
     var runGame, itemInterval;
     var dones = false;
     var maxTime = 20000; // max time miliseconds
@@ -13,11 +31,20 @@ $(function() {
 
     // when clicking the play button
     $("#play_btn").click(function() {
-        $("body").css("background-color", "#000");
-        $(".screen").hide();
-        $(".container").show();
-        playGame();
-        initFunc();
+        var height = $(window).height();
+        var width = $(window).width();
+        if (width > height) {
+            //run landscape script
+            $("body").css("background-color", "#000");
+            $(".screen").hide();
+            $(".container").show();
+            playGame();
+            initFunc();
+        } else {
+            //run portrait script
+            alert("Please rotate the screen to the landscape");
+            return;
+        }
     });
 
     // when clicking the retry area
@@ -47,6 +74,10 @@ $(function() {
         $("#new_game").addClass("fadeOut");
 
         setTimeout(function() {
+            var timerGame;
+            if (mobile) timerGame = 2000;
+            else timerGame = 2000;
+
             runGame = setInterval(function() {
                 if (enemyCount >= enemyMaxCount) {
                     runBirthdayBucket();
@@ -54,7 +85,7 @@ $(function() {
                     runEnemy();
                 }
                 enemyCount++;
-            }, 2000);
+            }, timerGame);
             itemInterval = setInterval(function() {
                 runItem();
             }, 3000);
@@ -118,8 +149,13 @@ $(function() {
             right: $(".container").width(),
             display: "block"
         };
+
+        var duration;
+        if (mobile) duration = 1800;
+        else duration = 1800;
+
         var options = {
-            duration: 1800,
+            duration: duration,
             done: function() {
                 var w = $(this).width() * -1;
                 $(this).css({
@@ -246,6 +282,15 @@ $(function() {
             pos = $(elem).position();
             width = $(elem).width();
             height = $(elem).height();
+
+            /* if (mobile && $(elem).hasClass("enemy")) {
+                // mobile, control enemy position
+                return [
+                    [pos.left - 100, pos.left + width - 100],
+                    [pos.top + 50, pos.top + height + 50]
+                ];
+            } */
+
             return [[pos.left, pos.left + width], [pos.top, pos.top + height]];
         }
 
