@@ -75,7 +75,7 @@ $(function() {
 
         setTimeout(function() {
             var timerGame;
-            if (mobile) timerGame = 2500;
+            if (mobile) timerGame = 2700;
             else timerGame = 2000;
 
             runGame = setInterval(function() {
@@ -152,7 +152,7 @@ $(function() {
         };
 
         var duration;
-        if (mobile) duration = 2000;
+        if (mobile) duration = 2500;
         else duration = 1800;
 
         var options = {
