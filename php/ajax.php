@@ -24,7 +24,7 @@ if ($action == "create") {
 		// already exists
 		$msg = "Thank you for playing! We see you already won today. Redeem your current Wicode first to be able to win again.";
 	} else {
-		if ($enemy_count >= 3) {
+		if ($enemy_count > 3) {
 			$sql = "UPDATE result SET win = 1 WHERE id='".$id."'";
 			mysqli_query($db, $sql);
 
