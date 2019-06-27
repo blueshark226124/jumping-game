@@ -54,7 +54,7 @@ $(function() {
 
     // when clicking the exit area
     $(".exit").click(function() {
-        window.location.assign("http://www.roaringsiya.hungrylion.co.za");
+        window.location.assign("https://www.hungrylion.co.za");
     });
 
     // when clicking the leaderboard area
@@ -64,7 +64,7 @@ $(function() {
 
     // when clicking the terms area
     $(".terms").click(function() {
-        window.location.assign("http://www.hungrylion.co.za/legal");
+        window.location.assign("https://www.hungrylion.co.za/legal");
     });
 
     var playGame = function() {

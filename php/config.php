@@ -7,7 +7,7 @@ define ('DEV', true);
 if (DEV) {
     $config['site_url'] = 'http://blueshark.php.jumpinglion.com';
 } else {
-	$config['site_url'] = 'http://www.temp.hungrylion.co.za/game/';
+	$config['site_url'] = 'https://www.hungrylion.co.za/game/';
 }
 
 // Database details...

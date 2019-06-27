@@ -16,9 +16,9 @@ if ($action == "create") {
 
 	if ($rowcount > 0) {
 		// already exists
-		$msg = "Thank you for playing! We see you already won today. Redeem your current coupon first to be able to win again.";
+		$msg = "Thank you for playing! We see you already won today. Redeem your current Wicode first to be able to win again.";
 	} else {
-		$msg = "Congratulations! You won! We will sms your prize shortly. If you have not received your coupon due to your network provider, please contact Talk To Us (https://www.hungrylion.co.za/talk-to-us) or Whatsapp 076 553 6337.";
+		$msg = "Woohoo! You won! We will sms your prize shortly. If you have not received your coupon due to your network provider, contact Talk To Us or Whatsapp 076 553 6337.";
 	}
 
 	$sql = "INSERT INTO result (username, phone_number, score, `date`) VALUES ('".$username."', '".$phone_number."', '".$score."', '".$date."')";
