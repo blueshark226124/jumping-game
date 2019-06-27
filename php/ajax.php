@@ -8,6 +8,7 @@ if ($action == "create") {
 	$phone_number = (empty($_POST['phone_number'])) ? "" : $_POST['phone_number'];
 	$score        = (empty($_POST['score'])) ? "" : $_POST['score'];
 	$date         = (empty($_POST['date'])) ? "" : $_POST['date'];
+	$enemy_count  = (empty($_POST['enemy_count'])) ? "" : $_POST['enemy_count'];
 
 	// check if it's the first try or not
 	$sql = "SELECT * FROM result WHERE username = '".$username."' AND phone_number = '".$phone_number."' AND `date` = '".$date."'";
@@ -18,7 +19,12 @@ if ($action == "create") {
 		// already exists
 		$msg = "Thank you for playing! We see you already won today. Redeem your current Wicode first to be able to win again.";
 	} else {
-		$msg = "Woohoo! You won! We will sms your prize shortly. If you have not received your coupon due to your network provider, contact Talk To Us or Whatsapp 076 553 6337.";
+		if ($enemy_count >= 3) {
+			$msg = "Woohoo! You won! We will sms your prize shortly. If you have not received your coupon due to your network provider, contact Talk To Us or Whatsapp 076 553 6337.";
+		} else {
+			$msg = "Not so lucky this time! Keep playing to WIN MORE & stand a chance to win a BIGGER prize!";
+		}
+		
 	}
 
 	$sql = "INSERT INTO result (username, phone_number, score, `date`) VALUES ('".$username."', '".$phone_number."', '".$score."', '".$date."')";

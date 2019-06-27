@@ -111,7 +111,8 @@ $(function() {
                     username: username,
                     phone_number: phone_number,
                     score: score,
-                    date: getTodayDate()
+                    date: getTodayDate(),
+                    enemy_count: enemyCount
                 };
 
                 $.ajax({
